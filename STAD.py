@@ -136,7 +136,7 @@ def get_object_bboxes(inp_img, predictor):
     scores = predictions.scores if predictions.has("scores") else None
     classes = np.array(predictions.pred_classes.tolist() if predictions.has("pred_classes") else None)
     # print("ROI info:",boxes.tensor.shape,scores.shape,predictions.pred_classes.shape)
-    predicted_boxes = boxes[np.logical_and(classes==0, scores>0.7 )].tensor.cpu() # select only person
+    predicted_boxes = boxes[np.logical_and(classes==0, scores>0.7)].tensor.cpu() # select only person
     return predicted_boxes,predictions.pred_classes.detach().tolist(),scores.detach().tolist()
 
 def train(args):
@@ -220,7 +220,7 @@ def test(args):
         scores=[]
         for time_stamp in time_stamp_range:
             # Generate clip around the designated time stamps
-            inp_imgs = encoded_vid.get_clip(time_stamp ,time_stamp + clip_duration - 0.04 )
+            inp_imgs = encoded_vid.get_clip(time_stamp ,time_stamp + clip_duration -0.04 )
             inp_imgs = inp_imgs['video']
             for i in range(0,inp_imgs.shape[1],args.sample_step):
                 inp_img = inp_imgs[:,i,:,:]
@@ -237,7 +237,6 @@ def test(args):
                         temp.append(1-label_prob["coco_label"][name])
                 for _ in range(args.sample_step):
                     scores.append(max(temp))
-            
             temp=[-1]
             if len(predicted_boxes) > 0: 
                 inputs, inp_boxes, _ = ava_inference_transform(inp_imgs, predicted_boxes.numpy(),crop_size=args.imsize)
@@ -261,10 +260,9 @@ def test(args):
                     if name not in label_prob["ava_label"].keys():
                         temp.append(0.5)
                     else:
-                        temp.append(0.5-label_prob["ava_label"][name])
-                        
+                        temp.append(0.5-label_prob["ava_label"][name])  
             if time_stamp==int(encoded_vid.duration//1)-1:
-                scores[time_stamp*25:]=[max(x,max(temp)) for x in scores[time_stamp*25:]]
+                # scores[time_stamp*25:]=[max(x,max(temp)) for x in scores[time_stamp*25:]]
                 diff=round(25*encoded_vid.duration)-len(scores)
                 if diff >= 0:
                     last=scores[-1]
@@ -274,9 +272,11 @@ def test(args):
                         scores.pop()
             else:
                 1+1
-                scores[time_stamp*25:time_stamp*25+25]=[max(x,max(temp)) for x in scores[time_stamp*25:time_stamp*25+25]]
+                # scores[time_stamp*25:time_stamp*25+25]=[max(x,max(temp)) for x in scores[time_stamp*25:time_stamp*25+25]]
                
         pred_list+=score_normalize(score_moving_avg(scores))
+        if "01_0014" in video_name:
+            break
 
     select_path={"SHTech":"frame_labels_shanghai.npy",
                  "Ped2":"frame_labels_ped2.npy",
@@ -286,8 +286,10 @@ def test(args):
     if not gt_path.endswith('shanghai.npy'):
         gt=gt[0]
     
-    assert len(gt)==len(pred_list),"{},{}".format(len(gt),len(pred_list))
-    auc=roc_auc_score(gt,pred_list)
+    if len(gt)!=len(pred_list):
+        print("gt and pred's length do not match({},{}), we choose the short one.".format(len(gt),len(pred_list)))
+    L=min(len(gt),len(pred_list))
+    auc=roc_auc_score(gt[0:L],pred_list[0:L])
     
     print("auc:",round(auc,5))
     print("test cost: {:.3f}s.".format(time.time()-a))
