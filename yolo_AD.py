@@ -94,7 +94,6 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataset', type=str, default='/data/VAD/SHTech')
     parser.add_argument('--yolo_weights', type=str, default='model/pytorch_yolov5/weights/yolov5l.pt')
-    parser.add_argument('--i3d_weights', type=str, default='model/pytorch_i3d/weights/rgb_charades.pt')
     parser.add_argument('--device', default='0', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
     parser.add_argument('--threshold', type=float, default=0.5)
     
