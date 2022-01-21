@@ -14,15 +14,15 @@ Framework:
 
 - [x] we use object detection and action detection pretrain models(on coco and ava) to extrat features, which is good enough to do anomaly detection.
 - [x] in training steps, we use GMM to cluster softlabel features, in inference steps, we calculate feature's probability as it's anomaly score.
-- [x] our method achieved good balance between accuracy and speed, compared with SOTA method.
+- [ ] our method achieved good balance between accuracy and speed, compared with SOTA method.
 
 | *Method Type*        | *Methods*                      | *Ped2* | *Avenue* | *SHTech* | *Speed* |
 | :------------------- | ------------------------------ | :----: | :------: | :------: | :-----: |
 | Image Reconstruction | Hyunjong et al. [1] (CVPR2020) |  90.2  |   82.8   |   69.8   | >67fps  |
-|                      | *Ours(object label only)       |  93.1  |   70.5   |   70.9   |  70fps  |
+|                      | *Ours(object label only)       |  93.1  |    /     |   70.9   |  70fps  |
 | Frame Prediction     | Hyunjong et al. [1] (CVPR2020) |  97.0  |   88.5   |   70.5   |  67fps  |
 | Pretrain Model       | Radu et al. [2] (CVPR 2019)    |  97.8  |   90.4   |   84.9   |  11fps  |
-|                      | *Ours(object and action label) |  96.4  |   85.7   |   75.6   |  24fps  |
+|                      | *Ours(object and action label) |        |          |          |  24fps  |
 
 
 
