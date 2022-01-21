@@ -64,10 +64,10 @@ Framework:
 
 ## References
 
-[1] Hyunjong Park, Jongyoun Noh, Bumsub Ham. Learning Memory-guided Normality for Anomaly Detection. In
-	Proceedings of CVPR, pages 14372–14381, 2020.
+[1] [Hyunjong Park, Jongyoun Noh, Bumsub Ham. Learning Memory-guided Normality for Anomaly Detection. In
+	Proceedings of CVPR, pages 14372–14381, 2020.](https://arxiv.org/pdf/2003.13228.pdf)
 
-[2] Radu Tudor Ionescu, Fahad Shahbaz Khan, Mariana-Iuliana Georgescu, Ling  Shao. Object-centric Auto-encoders and  	Dummy Anomalies for Abnormal  Event Detection in Video. In Proceedings of CVPR, pages 7842–7851, 2019.
+[2] [Radu Tudor Ionescu, Fahad Shahbaz Khan, Mariana-Iuliana Georgescu, Ling  Shao. Object-centric Auto-encoders and  	Dummy Anomalies for Abnormal  Event Detection in Video. In Proceedings of CVPR, pages 7842–7851, 2019.](https://arxiv.org/pdf/1812.04960.pdf)
 
 ## Citation
 
