@@ -2,19 +2,19 @@
 
 ## Intorduction
 
-This is a PyToch implementation of [Object and Action Anomaly Detection Using Pretrain Model](). 
+This is a PyToch implementation of [Object and Action Anomaly Detection Using Pretrain Models](). 
 
 Framework:
 
-<img src="./demo/STAD.png" width="750" />
+<img src="./demo/STAD.png" width="800" />
 
 
 
 ## Contributions
 
-- [x] we use object detection and action detection pretrain model(on coco and ava) to extrat features, which is good enough to do anomaly detection.
+- [x] we use object detection and action detection pretrain models(on coco and ava) to extrat features, which is good enough to do anomaly detection.
 - [x] in training steps, we use GMM to cluster softlabel features, in inference steps, we calculate feature's probability as it's anomaly score.
-- [x] our method achieved good balance between accuracy and speed compared with SOTA method.
+- [x] our method achieved good balance between accuracy and speed, compared with SOTA method.
 
 | *Method Type*        | *Methods*                      | *Ped2* | *Avenue* | *SHTech* | *Speed* |
 | :------------------- | ------------------------------ | :----: | :------: | :------: | :-----: |
@@ -73,10 +73,10 @@ Framework:
 If you find our work useful, please cite as follow:
 
 ```
-{   ssas,
+{   oaad,
     author = {Wu Fan},
-    title = { Self-Supervised Anomaly Segmentation },
+    title = { Object and Action Anomaly Detection },
     year = {2021},
-    url = {\url{https://github.com/wufan-tb/ssas}}
+    url = {\url{https://github.com/wufan-tb/oaad}}
 }
 ```
