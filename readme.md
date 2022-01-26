@@ -22,7 +22,7 @@ Framework:
 |                      | *Ours(object label only)       |  93.1  |    /     |   70.9   |  70fps  |
 | Frame Prediction     | Hyunjong et al. [1] (CVPR2020) |  97.0  |   88.5   |   70.5   |  67fps  |
 | Pretrain Model       | Radu et al. [2] (CVPR 2019)    |  97.8  |   90.4   |   84.9   |  11fps  |
-|                      | *Ours(object and action label) |        |          |          |  24fps  |
+|                      | *Ours(object and action label) |        |          |          |  29fps  |
 
 
 

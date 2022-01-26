@@ -93,7 +93,7 @@ def calculate_labels_score_intest(yolo_preds,id_to_ava_labels,label_prob,score_l
     return score_list
 
 def train(config):
-    model = torch.hub.load('ultralytics/yolov5', 'yolov5x6')
+    model = torch.hub.load('ultralytics/yolov5', 'yolov5l6')
     model.conf = config.conf
     model.iou = config.iou
     model.max_det = 200
@@ -161,7 +161,7 @@ def test(config):
         for name in counter[key].keys():
             label_prob[key][name]=counter[key][name]/total_num
     
-    model = torch.hub.load('ultralytics/yolov5', 'yolov5x6')
+    model = torch.hub.load('ultralytics/yolov5', 'yolov5l6')
     model.conf = config.conf
     model.iou = config.iou
     model.max_det = 200
