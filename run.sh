@@ -1,11 +1,11 @@
 
-for name in {'Ped2',}
+for name in {'SHTech',}
 do
     rm exp/${name}*
-    for th in {0.5,}
+    for th in {0.8,}
     do
         echo ' '
         echo '=============== start new loop ==============='
-        python yolo_AD.py --threshold ${th} --dataset /data/VAD/${name}
+        python yolo_slowfast_AD.py --threshold ${th} --dataset /data/VAD/${name}
     done
 done
